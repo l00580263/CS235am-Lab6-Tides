@@ -26,10 +26,12 @@ namespace TideApp
             // read xml
             XmlTideFileParser noaa = new XmlTideFileParser(Assets.Open("tides_annual.xml"));
 
+            // adapter
             ListAdapter = new SimpleAdapter(this, noaa.TideList, Resource.Layout.rowLayout, 
                 new string[] {XmlTideFileParser.DATE, XmlTideFileParser.HI_LOW, XmlTideFileParser.TIME}, 
                 new int[] {Resource.Id.dateText, Resource.Id.hiLowText, Resource.Id.timeText } );
-
+           
+            // fast scroll
             ListView.FastScrollEnabled = true;
         }
 
@@ -37,7 +39,11 @@ namespace TideApp
 
         protected override void OnListItemClick(ListView l, View v, int position, long id)
         {
-            
+            // toast message
+            string message = (string) ((JavaDictionary<string, object>)ListView.GetItemAtPosition(position))[XmlTideFileParser.HEIGHT];
+            message += " cm";
+            // show toast
+            Toast.MakeText(this, message, ToastLength.Short).Show();
         }
     }
 }

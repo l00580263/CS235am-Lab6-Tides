@@ -27,7 +27,7 @@ namespace TideApp
             XmlTideFileParser noaa = new XmlTideFileParser(Assets.Open("tides_annual.xml"));
 
             // adapter
-            ListAdapter = new SimpleAdapter(this, noaa.TideList, Resource.Layout.rowLayout, 
+            ListAdapter = new TideAdapter(this, noaa.TideList, Resource.Layout.rowLayout, 
                 new string[] {XmlTideFileParser.DATE, XmlTideFileParser.HI_LOW, XmlTideFileParser.TIME}, 
                 new int[] {Resource.Id.dateText, Resource.Id.hiLowText, Resource.Id.timeText } );
            

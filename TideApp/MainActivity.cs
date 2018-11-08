@@ -26,10 +26,19 @@ namespace TideApp
             // read xml
             XmlTideFileParser noaa = new XmlTideFileParser(Assets.Open("tides_annual.xml"));
 
+            // change each L and H to Low and High
+            foreach (IDictionary<string, object> o in noaa.TideList)
+            {
+                string v = (string)o["highlow"];
+                o["highlow"] = (v == "H" ? "High" : "Low");
+            }
+
+                
+
             // adapter
             ListAdapter = new TideAdapter(this, noaa.TideList, Resource.Layout.rowLayout, 
-                new string[] {XmlTideFileParser.DATE, XmlTideFileParser.HI_LOW, XmlTideFileParser.TIME}, 
-                new int[] {Resource.Id.dateText, Resource.Id.hiLowText, Resource.Id.timeText } );
+                new string[] {XmlTideFileParser.DATE, XmlTideFileParser.HI_LOW, XmlTideFileParser.TIME, XmlTideFileParser.DAY}, 
+                new int[] {Resource.Id.dateText, Resource.Id.hiLowText, Resource.Id.timeText, Resource.Id.dayText } );
            
             // fast scroll
             ListView.FastScrollEnabled = true;

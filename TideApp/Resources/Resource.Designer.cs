@@ -2477,6 +2477,9 @@ namespace TideApp
 			// aapt resource value: 0x7f0800ac
 			public const int dateText = 2131230892;
 			
+			// aapt resource value: 0x7f0800af
+			public const int dayText = 2131230895;
+			
 			// aapt resource value: 0x7f08007a
 			public const int decor_content_parent = 2131230842;
 			
@@ -2591,14 +2594,14 @@ namespace TideApp
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f0800b1
-			public const int masked = 2131230897;
+			// aapt resource value: 0x7f0800b2
+			public const int masked = 2131230898;
 			
 			// aapt resource value: 0x7f08009f
 			public const int media_actions = 2131230879;
 			
-			// aapt resource value: 0x7f0800af
-			public const int message = 2131230895;
+			// aapt resource value: 0x7f0800b0
+			public const int message = 2131230896;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2849,8 +2852,8 @@ namespace TideApp
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800b0
-			public const int visible = 2131230896;
+			// aapt resource value: 0x7f0800b1
+			public const int visible = 2131230897;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;

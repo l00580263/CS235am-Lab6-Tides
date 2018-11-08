@@ -26,6 +26,14 @@
 		android:layout_toRightOf="@id/hiLowText"
 		android:id="@+id/timeText"
 		android:layout_alignTop="@id/hiLowText" />
+	<TextView
+		android:text="Day"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/dateText"
+		android:id="@+id/dayText"
+		android:layout_marginLeft="17.0dp" />
 
 
 </RelativeLayout>

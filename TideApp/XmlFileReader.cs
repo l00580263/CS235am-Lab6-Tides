@@ -12,7 +12,7 @@ namespace TideTableUsingXmlFile
         public const string DATE = "date";
         public const string DAY = "day";
         public const string TIME = "time";
-        public const string HEIGHT = "pred_in_ft";   
+        public const string HEIGHT = "pred_in_cm";   
         public const string HI_LOW = "highlow";
 
         // This list will be filled with dictionary objects

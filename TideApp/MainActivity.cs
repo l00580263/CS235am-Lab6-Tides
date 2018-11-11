@@ -4,10 +4,12 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 using Android.Views;
-using TideTableUsingXmlFile;
+using TideLibrary;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.IO;
+using SQLite;
 
 namespace TideApp
 {
@@ -15,7 +17,7 @@ namespace TideApp
     public class MainActivity : ListActivity
     {
 
-
+        List<Tide> tides;
 
 
 
@@ -23,22 +25,31 @@ namespace TideApp
         {
             base.OnCreate(savedInstanceState);
 
-            // read xml
-            XmlTideFileParser noaa = new XmlTideFileParser(Assets.Open("tides_annual.xml"));
+            // path to db in assets
+            string dbPath = Path.Combine(
+                System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "Tides.db3");
 
-            // change each L and H to Low and High
-            foreach (IDictionary<string, object> o in noaa.TideList)
-            {
-                string v = (string)o["highlow"];
-                o["highlow"] = (v == "H" ? "High" : "Low");
-            }
+            using (Stream inStream = Assets.Open("Tides.db3"))
+            using (Stream outStream = File.Create(dbPath))
+                inStream.CopyTo(outStream);
 
-                
+            // get db
+            var db = new SQLiteConnection(dbPath);
+
+            var dayStart = new DateTime(2018, 6, 15).Ticks;
+            var dayEnd = new DateTime(2018, 6, 16).Ticks;
+
+            // get a tides at a location
+            tides = (from t in db.Table<Tide>()
+                         where (t.Location == "Florence")
+                             && (t.Date >= dayStart)
+                             && (t.Date <= dayEnd)
+                     select t).ToList();
+
+
 
             // adapter
-            ListAdapter = new TideAdapter(this, noaa.TideList, Resource.Layout.rowLayout, 
-                new string[] {XmlTideFileParser.DATE, XmlTideFileParser.HI_LOW, XmlTideFileParser.TIME, XmlTideFileParser.DAY}, 
-                new int[] {Resource.Id.dateText, Resource.Id.hiLowText, Resource.Id.timeText, Resource.Id.dayText } );
+            ListAdapter = new ArrayAdapter<Tide>(this, Android.Resource.Layout.SimpleListItem1, tides);
            
             // fast scroll
             ListView.FastScrollEnabled = true;

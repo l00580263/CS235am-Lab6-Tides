@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
-using TideTableUsingXmlFile;
+using TideLibrary;
 
 namespace TideApp
 {

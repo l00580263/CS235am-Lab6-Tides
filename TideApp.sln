@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideApp", "TideApp\TideApp.csproj", "{6F05985F-F8EF-4886-8A45-B5FABA21E56D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideLibrary", "TideLibrary\TideLibrary.csproj", "{96B745D7-0D5F-4256-8BB0-767E8D3E45F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideConsole", "TideConsole\TideConsole.csproj", "{4ABEE572-A7D8-49EF-8B90-57360B7E11F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,14 @@ Global
 		{6F05985F-F8EF-4886-8A45-B5FABA21E56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F05985F-F8EF-4886-8A45-B5FABA21E56D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F05985F-F8EF-4886-8A45-B5FABA21E56D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{96B745D7-0D5F-4256-8BB0-767E8D3E45F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B745D7-0D5F-4256-8BB0-767E8D3E45F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B745D7-0D5F-4256-8BB0-767E8D3E45F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B745D7-0D5F-4256-8BB0-767E8D3E45F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ABEE572-A7D8-49EF-8B90-57360B7E11F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABEE572-A7D8-49EF-8B90-57360B7E11F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABEE572-A7D8-49EF-8B90-57360B7E11F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABEE572-A7D8-49EF-8B90-57360B7E11F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

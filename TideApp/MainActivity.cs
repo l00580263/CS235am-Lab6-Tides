@@ -13,11 +13,13 @@ using SQLite;
 
 namespace TideApp
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class MainActivity : ListActivity
     {
 
         List<Tide> tides;
+        public const string LOCATION_KEY = "location";
+        public const string DATE_KEY = "date";
 
 
 
@@ -36,34 +38,31 @@ namespace TideApp
             // get db
             var db = new SQLiteConnection(dbPath);
 
-            var dayStart = new DateTime(2018, 6, 15).Ticks;
-            var dayEnd = new DateTime(2018, 6, 16).Ticks;
+            // query parameters
+            var dayStart = Intent.GetLongExtra(DATE_KEY, new DateTime().Ticks);
+            var dayEnd = dayStart + TimeSpan.TicksPerDay;
+            var location = Intent.GetStringExtra(LOCATION_KEY);
 
             // get a tides at a location
             tides = (from t in db.Table<Tide>()
-                         where (t.Location == "Florence")
+                         where (t.Location == location)
                              && (t.Date >= dayStart)
                              && (t.Date <= dayEnd)
                      select t).ToList();
 
+            // make a formatted list
+            List<string> convertedTides = new List<string>();
 
+            foreach (Tide t in tides)
+            {
+                convertedTides.Add(t.ToStringFormatForListView());
+            }
 
             // adapter
-            ListAdapter = new ArrayAdapter<Tide>(this, Android.Resource.Layout.SimpleListItem1, tides);
+            ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, convertedTides);
            
             // fast scroll
             ListView.FastScrollEnabled = true;
-        }
-
-
-
-        protected override void OnListItemClick(ListView l, View v, int position, long id)
-        {
-            // toast message
-            string message = (string) ((JavaDictionary<string, object>)ListView.GetItemAtPosition(position))[XmlTideFileParser.HEIGHT];
-            message += " cm";
-            // show toast
-            Toast.MakeText(this, message, ToastLength.Short).Show();
         }
     }
 }

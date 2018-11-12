@@ -33,5 +33,15 @@ namespace TideLibrary
         {
             return "Location = " + Location + ", Date = " + Date + ", Day = " + Day + ", Height = " + Height + ", HighLow = " + HighLow;
         }
+
+
+
+        public string ToStringFormatForListView()
+        {
+            var date = new DateTime(Date);
+            var time = String.Format("{0:t}", date);
+            var formatted = date.Month + "/" + date.Day + ", " + Day + " " + time + ": " + Height + "cm " + HighLow;
+            return formatted;
+        }
     }
 }

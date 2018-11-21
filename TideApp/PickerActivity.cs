@@ -16,7 +16,7 @@ using TideLibrary;
 
 namespace TideApp
 {
-    [Activity(Label = "PickerActivity", Theme = "@style/AppTheme", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleInstance)]
+    [Activity(Label = "PickerActivity", Theme = "@style/AppTheme")]
     public class PickerActivity : AppCompatActivity
     {
 

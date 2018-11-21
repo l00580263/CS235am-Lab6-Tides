@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace TideLibrary
 {
-    [Table("Tides")]
-    public class Location
+    [Table("Locations")]
+    public class TideLocation
     {
 
         [PrimaryKey, AutoIncrement]

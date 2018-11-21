@@ -10,19 +10,29 @@
 		android:orientation="vertical"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent">
-
 		<TextView
-			android:text="Large Text"
+			android:text="Next Tide Change:"
 			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/nextTideLabel" />
+		<TextView
+			android:text="Not updated"
+			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:id="@+id/locationText" />
 		<TextView
-			android:text="Large Text"
-			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="Not updated"
+			android:textAppearance="?android:attr/textAppearanceSmall"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:id="@+id/nextTideText" />
+		<Button
+			android:text="Update Next Tide"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/updateNextTideButton" />
 		<Button
 			android:text="Pick Date and Location"
 			android:layout_width="match_parent"

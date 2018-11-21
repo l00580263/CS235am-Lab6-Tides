@@ -43,5 +43,15 @@ namespace TideLibrary
             var formatted = date.Month + "/" + date.Day + ", " + Day + " " + time + ": " + Height + "cm " + HighLow;
             return formatted;
         }
+
+
+
+        public string ToStringFormatForTextView()
+        {
+            var date = new DateTime(Date);
+            var time = String.Format("{0:t}", date);
+            var formatted = time + ": " + Height + "cm " + HighLow;
+            return formatted;
+        }
     }
 }
